@@ -2096,28 +2096,48 @@
     
     
             var marker_3c989a51435c2bdf8566479560feced1 = L.marker(
-                [51.529890925206026, -0.10619265221866214],
-                {}
-            ).addTo(map_e126fb5d898d59782ba33ae6c7cde58e);
-        
-    
-            var icon_32fcfe0c12fc192149e906820d7a5ca2 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_3c989a51435c2bdf8566479560feced1.setIcon(icon_32fcfe0c12fc192149e906820d7a5ca2);
-        
-    
-        var popup_b4d93c6dee9d17e35b66cb1a3b484844 = L.popup({"maxWidth": "100%"});
+    [51.529890925206026, -0.10619265221866214],
+    {}
+).addTo(map_e126fb5d898d59782ba33ae6c7cde58e);
 
-        
-            
-                var html_5fe1e1a68ea4196dd776aafd0c16fc5a = $(`<div id="html_5fe1e1a68ea4196dd776aafd0c16fc5a" style="width: 100.0%; height: 100.0%;">The Harlequin</div>`)[0];
-                popup_b4d93c6dee9d17e35b66cb1a3b484844.setContent(html_5fe1e1a68ea4196dd776aafd0c16fc5a);
-            
-        
+// Define the default and larger icon sizes
+var defaultIcon = L.AwesomeMarkers.icon({
+    "icon": "info-sign",
+    "iconColor": "white",
+    "markerColor": "green",
+    "prefix": "glyphicon",
+    "extraClasses": "fa-rotate-0"
+});
 
-        marker_3c989a51435c2bdf8566479560feced1.bindPopup(popup_b4d93c6dee9d17e35b66cb1a3b484844)
-        ;
+var largerIcon = L.AwesomeMarkers.icon({
+    "icon": "info-sign",
+    "iconColor": "white",
+    "markerColor": "green",
+    "prefix": "glyphicon",
+    "extraClasses": "fa-rotate-0",
+    "iconSize": [35, 45] // larger size
+});
+
+// Set the default icon initially
+marker_3c989a51435c2bdf8566479560feced1.setIcon(defaultIcon);
+
+// Popup content
+var popup_b4d93c6dee9d17e35b66cb1a3b484844 = L.popup({"maxWidth": "100%"});
+var html_5fe1e1a68ea4196dd776aafd0c16fc5a = $(`<div id="html_5fe1e1a68ea4196dd776aafd0c16fc5a" style="width: 100.0%; height: 100.0%;">The Harlequin</div>`)[0];
+popup_b4d93c6dee9d17e35b66cb1a3b484844.setContent(html_5fe1e1a68ea4196dd776aafd0c16fc5a);
+
+// Bind the popup to show on hover instead of on click
+marker_3c989a51435c2bdf8566479560feced1.bindPopup(popup_b4d93c6dee9d17e35b66cb1a3b484844);
+
+marker_3c989a51435c2bdf8566479560feced1.on('mouseover', function () {
+    marker_3c989a51435c2bdf8566479560feced1.setIcon(largerIcon);
+    marker_3c989a51435c2bdf8566479560feced1.openPopup();
+});
+
+marker_3c989a51435c2bdf8566479560feced1.on('mouseout', function () {
+    marker_3c989a51435c2bdf8566479560feced1.setIcon(defaultIcon);
+    marker_3c989a51435c2bdf8566479560feced1.closePopup();
+});
 
         
     
