@@ -1,8 +1,9 @@
 
-    <html>
-    <head>
+  <html>
+<head>
     <title>Chase The Chickens</title>
     <style>
+        /* Your existing CSS */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -29,7 +30,13 @@
             height: auto;  /* Keeps the aspect ratio of the image */
         }
     </style>
-    </head>
+    <script type="text/javascript">
+        var password = prompt("Please enter your password to view this page");
+        if(password != "yourpassword") {
+            window.location = "https://m.media-amazon.com/images/I/41QI14pD4zS._AC_UF894,1000_QL80_.jpg"; // Redirect to another page if the password is wrong
+        }
+    </script>
+</head>
     <body>
     <div class="container">
         <img src="ctc-image.png" alt="Chase the Chickens" class="title-image">
