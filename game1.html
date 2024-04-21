@@ -33,12 +33,15 @@
                     top: 0.0%;
                 }
                 .leaflet-container { font-size: 1rem; }
-                .custom-marker-icon .awesome-marker {
-            transition: transform 0.3s ease; /* Smooth transition for transformation */
-        }
-        .custom-marker-icon .awesome-marker:hover {
-            transform: scale(1.5); /* Increase the icon size on hover */
-        }
+    @keyframes pulsate {
+        0% { transform: scale(0.6); opacity: 0.0; }
+        50% { transform: scale(1.0); opacity: 1.0; }
+        100% { transform: scale(0.6); opacity: 0.0; }
+    }
+    .custom-marker-icon .awesome-marker i {
+        animation: pulsate 1.5s ease-out infinite;
+    }
+
             </style>
         
 </head>
