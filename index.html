@@ -1,9 +1,8 @@
 
-  <html>
+<html>
 <head>
     <title>Chase The Chickens</title>
     <style>
-        /* Your existing CSS */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -29,15 +28,38 @@
             max-width: 100%;  /* Ensures the image doesn't overflow its container */
             height: auto;  /* Keeps the aspect ratio of the image */
         }
-    </style>
-    <script type="text/javascript">
-        var password = prompt("Please enter your password to view this page");
-        if(password != "yourpassword") {
-            window.location = "https://m.media-amazon.com/images/I/41QI14pD4zS._AC_UF894,1000_QL80_.jpg"; // Redirect to another page if the password is wrong
+        /* Style for the password modal */
+        #passwordModal {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2; /* Ensures modal is above other content */
         }
-    </script>
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+    </style>
 </head>
-    <body>
+<body>
+    <!-- Custom Styled Password Prompt -->
+    <div id="passwordModal">
+        <div class="modal-content">
+            <h2>Enter Password</h2>
+            <input type="password" id="passwordInput">
+            <button onclick="checkPassword()">Submit</button>
+        </div>
+    </div>
     <div class="container">
         <img src="ctc-image.png" alt="Chase the Chickens" class="title-image">
         <h3>Rules</h3>
@@ -62,5 +84,19 @@
         <h3>Starts at: <a href ="https://www.google.com/maps/place/Howl+At+The+Moon/@51.5331024,-0.0824889,17z/data=!3m1!4b1!4m6!3m5!1s0x48761cbcfca5b407:0xfa1fa0feda000b97!8m2!3d51.5331024!4d-0.079914!16s%2Fg%2F1tfg74k1?entry=ttu">Howl at the Moon, Hoxton St.</a></h3>
         <iframe src="game2.html" allowfullscreen></iframe>
     </div>
+  <script type="text/javascript">
+        function checkPassword() {
+            var password = document.getElementById('passwordInput').value;
+            if (password === 'yourpassword') {
+                document.getElementById('passwordModal').style.display = 'none';
+            } else {
+                alert('Incorrect password!');
+            }
+        }
+
+        window.onload = function() {
+            document.getElementById('passwordModal').style.display = 'flex';
+        };
+    </script>
     </body>
     </html>
